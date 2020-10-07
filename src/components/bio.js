@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import { jsx, Styled } from "theme-ui"
+import { jsx, Styled, Flex, Box } from "theme-ui"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -34,9 +34,10 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="bio">
+    <Flex>
       {avatar && (
         <Image
+          sx={{ alignSelf: "center" }}
           fixed={avatar}
           alt={author?.name || ``}
           className="bio-avatar"
@@ -45,20 +46,22 @@ const Bio = () => {
           }}
         />
       )}
-      {author?.name && (
-        <Styled.p>
-          Written by{" "}
-          <Styled.a
-            sx={{ textDecoration: "none" }}
-            href={`https://github.com/${social.github}`}
-            target="__blank"
-          >
-            {author.name}
-          </Styled.a>
-        </Styled.p>
-      )}
-      {author?.summary && <Styled.p>{author.summary}</Styled.p>}
-    </div>
+      <Box ml={2}>
+        {author?.name && (
+          <Styled.p>
+            Musings by{" "}
+            <Styled.a
+              sx={{ textDecoration: "none" }}
+              href={`https://github.com/${social.github}`}
+              target="__blank"
+            >
+              {author.name}
+            </Styled.a>
+          </Styled.p>
+        )}
+        {author?.summary && <Styled.p>{author.summary}</Styled.p>}
+      </Box>
+    </Flex>
   )
 }
 

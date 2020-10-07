@@ -23,7 +23,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <Styled.h1 itemProp="headline">{post.frontmatter.title}</Styled.h1>
+          <Styled.h1 color="primary" itemProp="headline">
+            {post.frontmatter.title}
+          </Styled.h1>
           <Styled.p>{post.frontmatter.date}</Styled.p>
         </header>
         <section

@@ -1,7 +1,7 @@
-import React from "react"
+/** @jsx jsx */
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { Styled, Container, Flex, NavLink, Box } from "theme-ui"
+import { jsx, Styled, Container, Flex, NavLink, Box } from "theme-ui"
 import Headroom from "react-headroom"
 import { Sling as Hamburger } from "hamburger-react"
 
@@ -15,11 +15,11 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
           py={2}
           sx={{ justifyContent: "space-between" }}
         >
-          <Styled.h1>
-            <Styled.a as={Link} to="/">
+          <Styled.h2>
+            <Styled.a sx={{ textDecoration: "none" }} as={Link} to="/">
               {siteTitle}
             </Styled.a>
-          </Styled.h1>
+          </Styled.h2>
           <Box sx={{ display: ["block", "none", "none"], alignSelf: "center" }}>
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </Box>

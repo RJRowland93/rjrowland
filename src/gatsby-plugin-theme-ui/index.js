@@ -17,5 +17,6 @@ export default {
   },
   styles: {
     a: { color: "primary" },
+    h1: { color: "primary" },
   },
 }
