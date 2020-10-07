@@ -1,36 +1,30 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import { css, Styled, Flex, Box, NavLink } from "theme-ui"
+import { Styled, Flex, Container } from "theme-ui"
 
-const style = { flex: "1" }
-
-const Footer = ({ social, menuLinks }) => (
-  <Flex
+const Footer = ({ social }) => (
+  <Container
     as="footer"
-    bg="secondary"
-    py={2}
-    sx={{ justifyContent: "space-evenly" }}
+    sx={{
+      borderTop: "3px solid",
+      borderColor: "secondary",
+    }}
   >
-    <Box sx={style}>
+    <Flex sx={{ justifyContent: "space-around" }}>
       {social.map(({ name, url }) => (
-        <Styled.h4 css={css({ textAlign: "center" })}>
-          <NavLink href={url} target="_blank" rel="noreferrer">
+        <Styled.h4>
+          <Styled.a
+            sx={{ width: "100%", textAlign: "center" }}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+          >
             {name}
-          </NavLink>
+          </Styled.a>
         </Styled.h4>
       ))}
-    </Box>
-    <Box as="nav" sx={style}>
-      {menuLinks.map(({ name, link }) => (
-        <Styled.h4 css={css({ textAlign: "center" })}>
-          <NavLink as={Link} to={link}>
-            {name}
-          </NavLink>
-        </Styled.h4>
-      ))}
-    </Box>
-  </Flex>
+    </Flex>
+  </Container>
 )
 
 Footer.propTypes = {

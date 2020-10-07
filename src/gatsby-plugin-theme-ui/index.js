@@ -30,30 +30,12 @@ export default {
     background: blueGrey,
     primary: orange,
     secondary: blue,
+    borderColor: "secondary",
   },
   sizes: {
     container: 768,
   },
   styles: {
-    // pre: {
-    //   ...prism,
-    // },
     a: { color: "primary" },
-  },
-  buttons: {
-    primary: {
-      color: "white",
-      bg: "primary",
-      "&:hover": {
-        bg: "dark",
-      },
-    },
-    secondary: {
-      color: "primary",
-      bg: "secondary",
-      "&:hover": {
-        bg: "dark",
-      },
-    },
   },
 }

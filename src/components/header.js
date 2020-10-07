@@ -1,20 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { css, Styled, Flex, NavLink, Box } from "theme-ui"
+import { Styled, Container, Flex, NavLink, Box } from "theme-ui"
 import Headroom from "react-headroom"
 import { Sling as Hamburger } from "hamburger-react"
 
-const Header = ({ siteTitle, menuLinks }) => {
-  const [isOpen, setOpen] = useState(false)
+const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
   return (
-    <Headroom>
-      <Flex
-        as="header"
-        bg="secondary"
-        py={2}
-        sx={{ justifyContent: "space-around" }}
-      >
+    <Container as={Headroom}>
+      <Flex as="header" py={2} sx={{ justifyContent: "space-between" }}>
         <Styled.h1>
           <Styled.a as={Link} to="/">
             {siteTitle}
@@ -33,7 +27,7 @@ const Header = ({ siteTitle, menuLinks }) => {
           <Flex
             as="nav"
             sx={{
-              justifyContent: "space-around",
+              justifyContent: "flex-end",
             }}
           >
             {menuLinks.map(({ name, link }) => (
@@ -49,7 +43,6 @@ const Header = ({ siteTitle, menuLinks }) => {
       {isOpen && (
         <Box
           as="nav"
-          bg="secondary"
           sx={{
             display: ["block", "none", "none"],
             position: "absolute",
@@ -57,21 +50,28 @@ const Header = ({ siteTitle, menuLinks }) => {
           }}
         >
           {menuLinks.map(({ name, link }) => (
-            <Styled.h3 css={css({ textAlign: "center" })}>
-              <NavLink as={Link} to={link} py={2}>
+            <Styled.h3>
+              <NavLink
+                as={Link}
+                to={link}
+                py={2}
+                sx={{ width: "100%", textAlign: "center" }}
+              >
                 {name}
               </NavLink>
             </Styled.h3>
           ))}
         </Box>
       )}
-    </Headroom>
+    </Container>
   )
 }
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
   menuLinks: PropTypes.array,
+  isOpen: PropTypes.bool,
+  setOpen: PropTypes.func,
 }
 
 Header.defaultProps = {
