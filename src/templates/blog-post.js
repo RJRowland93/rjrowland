@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Styled } from "theme-ui"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -22,14 +23,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <Styled.h1 itemProp="headline">{post.frontmatter.title}</Styled.h1>
+          <Styled.p>{post.frontmatter.date}</Styled.p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+        <Styled.hr />
         <footer>
           <Bio />
         </footer>

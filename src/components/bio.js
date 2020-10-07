@@ -1,13 +1,7 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from "react"
+/** @jsx jsx */
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import { jsx, Styled } from "theme-ui"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -26,7 +20,7 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            github
           }
         }
       }
@@ -35,7 +29,7 @@ const Bio = () => {
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
+  const social = data.site.siteMetadata?.social || {}
 
   const avatar = data?.avatar?.childImageSharp?.fixed
 
@@ -52,14 +46,18 @@ const Bio = () => {
         />
       )}
       {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
-        </p>
+        <Styled.p>
+          Written by{" "}
+          <Styled.a
+            sx={{ textDecoration: "none" }}
+            href={`https://github.com/${social.github}`}
+            target="__blank"
+          >
+            {author.name}
+          </Styled.a>
+        </Styled.p>
       )}
+      {author?.summary && <Styled.p>{author.summary}</Styled.p>}
     </div>
   )
 }

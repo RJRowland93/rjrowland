@@ -1,10 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Styled } from "theme-ui"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TipsListing from "../components/tipsListing"
 
 const TipsIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -15,38 +15,7 @@ const TipsIndex = ({ data, location }) => {
       <SEO title="All tips" />
       <Bio />
 
-      <ol style={{ listStyle: `none` }}>
-        {tips.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <Styled.h2>
-                    <Styled.a as={Link} to={post.fields.slug}>
-                      {title}
-                    </Styled.a>
-                  </Styled.h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <Styled.p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      {tips.map(TipsListing)}
     </Layout>
   )
 }
@@ -73,6 +42,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }

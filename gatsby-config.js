@@ -3,9 +3,9 @@ module.exports = {
     title: `rjrowland`,
     author: {
       name: `Randal Rowland`,
-      summary: `Software`,
+      summary: `A collection of thoughts from a programmer`,
     },
-    description: `A collection of thoughts from a programmer`,
+    description: `A collection of thoughts from Randal Rowland`,
     siteUrl: `https://rjrowland.netlify.app/`,
     menuLinks: [
       { name: `Thoughts`, link: `/thoughts` },
@@ -13,6 +13,7 @@ module.exports = {
     ],
     social: {
       twitter: "RJRowland",
+      github: "RJRowland93",
     },
     socialLinks: [
       { name: "Github", url: `https://github.com/RJRowland93` },

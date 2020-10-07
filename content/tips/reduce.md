@@ -1,7 +1,8 @@
 ---
-title: Reduce - The Savvy Programmer's Higher Order Function
+title: Reduce
 date: 2020-10-05
-template: Tips
+description: The Savvy Programmer's Higher Order Function
+tags: ["javascript", "functional"]
 ---
 
 ## Frequencies

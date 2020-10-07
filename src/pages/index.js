@@ -1,10 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Styled } from "theme-ui"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PostListing from "../components/postListing"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -15,38 +15,7 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio />
 
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <Styled.h2>
-                    <Styled.a as={Link} to={post.fields.slug}>
-                      {title}
-                    </Styled.a>
-                  </Styled.h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      {posts.map(PostListing)}
     </Layout>
   )
 }

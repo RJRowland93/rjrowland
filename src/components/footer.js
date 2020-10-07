@@ -5,6 +5,7 @@ import { Styled, Flex, Container } from "theme-ui"
 const Footer = ({ social }) => (
   <Container
     as="footer"
+    mt={2}
     sx={{
       borderTop: "3px solid",
       borderColor: "secondary",
