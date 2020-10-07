@@ -27,8 +27,9 @@ const Layout = ({ children }) => {
 
   const [isOpen, setOpen] = useState(false)
   return (
-    <Flex
+    <Container
       sx={{
+        display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
       }}
@@ -39,21 +40,19 @@ const Layout = ({ children }) => {
         isOpen={isOpen}
         setOpen={setOpen}
       />
-
-      <Container
-        as="main"
+      <main
         sx={{
           flex: "1",
           opacity: isOpen ? "0.1" : "1",
         }}
       >
         {children}
-      </Container>
+      </main>
       <Footer
         social={data.site.siteMetadata?.socialLinks}
         menuLinks={data.site.siteMetadata?.menuLinks}
       />
-    </Flex>
+    </Container>
   )
 }
 

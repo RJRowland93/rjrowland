@@ -7,63 +7,70 @@ import { Sling as Hamburger } from "hamburger-react"
 
 const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
   return (
-    <Container as={Headroom}>
-      <Flex as="header" py={2} sx={{ justifyContent: "space-between" }}>
-        <Styled.h1>
-          <Styled.a as={Link} to="/">
-            {siteTitle}
-          </Styled.a>
-        </Styled.h1>
-        <Box sx={{ display: ["block", "none", "none"], alignSelf: "center" }}>
-          <Hamburger toggled={isOpen} toggle={setOpen} />
-        </Box>
-        <Box
-          sx={{
-            display: ["none", "block", "block"],
-            alignSelf: "center",
-            width: "50%",
-          }}
+    <Headroom>
+      <Container>
+        <Flex
+          as="header"
+          bg="background"
+          py={2}
+          sx={{ justifyContent: "space-between" }}
         >
-          <Flex
+          <Styled.h1>
+            <Styled.a as={Link} to="/">
+              {siteTitle}
+            </Styled.a>
+          </Styled.h1>
+          <Box sx={{ display: ["block", "none", "none"], alignSelf: "center" }}>
+            <Hamburger toggled={isOpen} toggle={setOpen} />
+          </Box>
+          <Box
+            sx={{
+              display: ["none", "block", "block"],
+              alignSelf: "center",
+              width: "50%",
+            }}
+          >
+            <Flex
+              as="nav"
+              sx={{
+                justifyContent: "flex-end",
+              }}
+            >
+              {menuLinks.map(({ name, link }) => (
+                <Styled.h3>
+                  <NavLink as={Link} to={link} px={2}>
+                    {name}
+                  </NavLink>
+                </Styled.h3>
+              ))}
+            </Flex>
+          </Box>
+        </Flex>
+        {isOpen && (
+          <Box
             as="nav"
             sx={{
-              justifyContent: "flex-end",
+              display: ["block", "none", "none"],
+              position: "absolute",
+              width: "100%",
             }}
           >
             {menuLinks.map(({ name, link }) => (
               <Styled.h3>
-                <NavLink as={Link} to={link} px={2}>
+                <NavLink
+                  as={Link}
+                  to={link}
+                  py={2}
+                  sx={{ width: "100%", textAlign: "center" }}
+                >
                   {name}
                 </NavLink>
               </Styled.h3>
             ))}
-          </Flex>
-        </Box>
-      </Flex>
-      {isOpen && (
-        <Box
-          as="nav"
-          sx={{
-            display: ["block", "none", "none"],
-            position: "absolute",
-            width: "100%",
-          }}
-        >
-          {menuLinks.map(({ name, link }) => (
-            <Styled.h3>
-              <NavLink
-                as={Link}
-                to={link}
-                py={2}
-                sx={{ width: "100%", textAlign: "center" }}
-              >
-                {name}
-              </NavLink>
-            </Styled.h3>
-          ))}
-        </Box>
-      )}
-    </Container>
+          </Box>
+        )}
+      </Container>
+    </Headroom>
   )
 }
 
