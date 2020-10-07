@@ -1,7 +1,7 @@
 ---
-title: Feedback and Prototypes
+title: Computer Science without the Degree
 date: 2020-10-02
-excerpt: You do not need to take a computer science course and endure lengthy lectures to be introduced to programming.
+description: Create a strong programming foundation on your own
 ---
 
 - sicp

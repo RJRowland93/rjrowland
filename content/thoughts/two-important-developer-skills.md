@@ -1,7 +1,7 @@
 ---
 title: Two Important Developer Skills
 date: 2020-10-02
-excerpt: hello
+description: Focus on these to improve your programming ability
 ---
 
 1. Modeling Data

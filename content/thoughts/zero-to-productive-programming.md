@@ -1,16 +1,8 @@
 ---
 title: Zero to Productive Programming
 date: 2020-10-02
-excerpt: You do not need to take a computer science course and endure lengthy lectures to be introduced to programming.
+description: A rapid introduction for those curious about what programming is about
 ---
-
-Contents:
-
-- Here are your tools.
-- First thing is first...
-- Take control of your REPL
-- Lets write a program to quiz your progress
-- Where to go from here?
 
 I'm assuming you do not have much experience programming or have found most introductions overwhelming.
 

@@ -1,16 +1,8 @@
 ---
-title: Feedback and Prototypes
+title: Prototypes and Feedback
 date: 2020-10-02
-excerpt: You do not need to take a computer science course and endure lengthy lectures to be introduced to programming.
+description: Program smarter by improving your developer workflow
 ---
-
-Who is my audience?
-
-- Developers who want to improve
-  Why do they read this?
-- To see how they can improve their workflow
-  What do they take away from this?
-- Using REPLs and Sandboxes for a tighter feedback loop
 
 ## Feedback
 

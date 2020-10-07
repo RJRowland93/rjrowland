@@ -1,7 +1,7 @@
 ---
-title: Feedback and Prototypes
+title: Build-a-Tech
 date: 2020-10-02
-excerpt: You do not need to take a computer science course and endure lengthy lectures to be introduced to programming.
+description: Recreate the tech and tools you work with to have a better understanding of how they work
 ---
 
 - git

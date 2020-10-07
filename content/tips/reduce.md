@@ -1,7 +1,7 @@
 ---
 title: Reduce
 date: 2020-10-05
-description: The Savvy Programmer's Higher Order Function
+description: The savvy programmer's higher order function
 tags: ["javascript", "functional"]
 ---
 
