@@ -15,11 +15,11 @@ const PostListing = props => {
       >
         <header>
           <Styled.h2 css={css({ color: "primary" })}>{title}</Styled.h2>
-          <small>{props.frontmatter.date}</small>
-          <Box as="span" mx={2}>
+          <small sx={{ color: "muted" }}>{props.frontmatter.date}</small>
+          <Box color="muted" as="span" mx={2}>
             &middot;
           </Box>
-          <small>{props.timeToRead} min read</small>
+          <small sx={{ color: "muted" }}>{props.timeToRead} min read</small>
         </header>
         <section>
           <p
