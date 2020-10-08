@@ -24,4 +24,12 @@ export default merge(toTheme(parnassus), {
     a: { color: "primary" },
     h1: { color: "primary" },
   },
+  links: {
+    active: {
+      color: "primary",
+      "&:hover": {
+        color: "text",
+      },
+    },
+  },
 })

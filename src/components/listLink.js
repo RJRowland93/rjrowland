@@ -10,9 +10,17 @@ const ListLink = props => (
       color: "text",
       textDecoration: "none",
       p: 2,
+      my: 2,
+      //   mx: 1,
       width: "100%",
+      outline: "2px solid",
+      outlineColor: "secondary",
+      "@media screen and (min-width: 40em)": {
+        m: 0,
+        outline: "none",
+        outlineColor: "none",
+      },
       "&:hover": {
-        // transition: "outline 0.6s linear",
         outline: "2px solid",
         outlineColor: "secondary",
       },

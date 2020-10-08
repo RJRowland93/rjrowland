@@ -34,7 +34,7 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <Flex>
+    <Flex ml={2}>
       {avatar && (
         <Image
           sx={{ alignSelf: "center" }}

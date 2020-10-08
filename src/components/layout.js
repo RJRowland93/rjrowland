@@ -33,6 +33,7 @@ const Layout = ({ children }) => {
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
+        px: 1,
       }}
     >
       <Header

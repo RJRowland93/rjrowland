@@ -16,10 +16,11 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
           sx={{ justifyContent: "space-between" }}
         >
           <Styled.h2>
-            <Styled.a sx={{ textDecoration: "none" }} as={Link} to="/">
+            <NavLink variant="active" as={Link} to="/">
               {siteTitle}
-            </Styled.a>
+            </NavLink>
           </Styled.h2>
+
           <Box sx={{ display: ["block", "none", "none"], alignSelf: "center" }}>
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </Box>
@@ -36,13 +37,21 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
                 justifyContent: "flex-end",
               }}
             >
-              {menuLinks.map(({ name, link }) => (
-                <Styled.h3>
-                  <NavLink as={Link} to={link} px={2}>
-                    {name}
-                  </NavLink>
-                </Styled.h3>
-              ))}
+              {menuLinks.map(({ name, link }) => {
+                const isActive = window?.location?.pathname === link
+                return (
+                  <Styled.h3>
+                    <NavLink
+                      as={Link}
+                      to={link}
+                      px={2}
+                      variant={isActive ? "active" : "nav"}
+                    >
+                      {name}
+                    </NavLink>
+                  </Styled.h3>
+                )
+              })}
             </Flex>
           </Box>
         </Flex>
@@ -55,18 +64,22 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
               width: "100%",
             }}
           >
-            {menuLinks.map(({ name, link }) => (
-              <Styled.h3>
-                <NavLink
-                  as={Link}
-                  to={link}
-                  py={2}
-                  sx={{ width: "100%", textAlign: "center" }}
-                >
-                  {name}
-                </NavLink>
-              </Styled.h3>
-            ))}
+            {menuLinks.map(({ name, link }) => {
+              const isActive = window?.location?.pathname === link
+              return (
+                <Styled.h3>
+                  <NavLink
+                    as={Link}
+                    to={link}
+                    py={2}
+                    sx={{ width: "100%", textAlign: "center" }}
+                    variant={isActive ? "active" : "nav"}
+                  >
+                    {name}
+                  </NavLink>
+                </Styled.h3>
+              )
+            })}
           </Box>
         )}
       </Container>

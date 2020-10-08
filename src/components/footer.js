@@ -6,6 +6,7 @@ const Footer = ({ social }) => (
   <Container
     as="footer"
     mt={2}
+    pt={2}
     sx={{
       borderTop: "3px solid",
       borderColor: "secondary",
