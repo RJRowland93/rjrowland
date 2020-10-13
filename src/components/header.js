@@ -15,51 +15,20 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
           py={2}
           sx={{ justifyContent: "space-between" }}
         >
-          <Styled.h2>
+          <Styled.h2 sx={{ m: 0, alignSelf: "center" }}>
             <NavLink variant="active" as={Link} to="/">
               {siteTitle}
             </NavLink>
           </Styled.h2>
-
-          <Box sx={{ display: ["block", "none", "none"], alignSelf: "center" }}>
+          <Box sx={{ alignSelf: "center" }}>
             <Hamburger toggled={isOpen} toggle={setOpen} />
-          </Box>
-          <Box
-            sx={{
-              display: ["none", "block", "block"],
-              alignSelf: "center",
-              width: "50%",
-            }}
-          >
-            <Flex
-              as="nav"
-              sx={{
-                justifyContent: "flex-end",
-              }}
-            >
-              {menuLinks.map(({ name, link }) => {
-                const isActive = window?.location?.pathname === link
-                return (
-                  <Styled.h3>
-                    <NavLink
-                      as={Link}
-                      to={link}
-                      px={2}
-                      variant={isActive ? "active" : "nav"}
-                    >
-                      {name}
-                    </NavLink>
-                  </Styled.h3>
-                )
-              })}
-            </Flex>
           </Box>
         </Flex>
         {isOpen && (
           <Box
             as="nav"
             sx={{
-              display: ["block", "none", "none"],
+              zIndex: 2,
               position: "absolute",
               width: "100%",
             }}
