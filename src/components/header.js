@@ -24,33 +24,33 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </Box>
         </Flex>
-        {isOpen && (
-          <Box
-            as="nav"
-            sx={{
-              zIndex: 2,
-              position: "absolute",
-              width: "100%",
-            }}
-          >
-            {menuLinks.map(({ name, link }) => {
-              const isActive = window?.location?.pathname === link
-              return (
-                <Styled.h3>
-                  <NavLink
-                    as={Link}
-                    to={link}
-                    py={2}
-                    sx={{ width: "100%", textAlign: "center" }}
-                    variant={isActive ? "active" : "nav"}
-                  >
-                    {name}
-                  </NavLink>
-                </Styled.h3>
-              )
-            })}
-          </Box>
-        )}
+        <Container
+          as="nav"
+          sx={{
+            zIndex: isOpen ? 2 : -1,
+            position: "absolute",
+            width: "100%",
+            height: isOpen ? "80vh" : "0",
+            visibility: isOpen ? "visible" : "hidden",
+          }}
+        >
+          {menuLinks.map(({ name, link }) => {
+            const isActive = window?.location?.pathname === link
+            return (
+              <Styled.h3>
+                <NavLink
+                  as={Link}
+                  to={link}
+                  py={2}
+                  sx={{ width: "100%", textAlign: "center" }}
+                  variant={isActive ? "active" : "nav"}
+                >
+                  {name}
+                </NavLink>
+              </Styled.h3>
+            )
+          })}
+        </Container>
       </Container>
     </Headroom>
   )
