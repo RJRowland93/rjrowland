@@ -1,7 +1,7 @@
 ---
-title: Zero to Productive Programming
+title: A Rapid Introduction to Programming
 date: 2020-10-02
-description: A rapid introduction for those curious about what programming is about
+description: An appetizer for what programming offers
 ---
 
 I'm assuming you do not have much experience programming or have found most introductions overwhelming.

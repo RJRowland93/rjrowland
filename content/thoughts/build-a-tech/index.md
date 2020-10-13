@@ -4,10 +4,16 @@ date: 2020-10-02
 description: Recreate the tech and tools you work with to have a better understanding of how they work
 ---
 
-- git
+## Infrastructure
+
+- distributed system
 - proxy
-- webpack
 - webserver
 - dns
+
+## Tools
+
+- git
+- webpack
 - react
-- distributed system
+- redux
