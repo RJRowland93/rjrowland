@@ -1,44 +1,67 @@
-import React from "react"
-import { graphql } from "gatsby"
+/** @jsx jsx */
+import { graphql, Link } from "gatsby"
+import { jsx, NavLink } from "theme-ui"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostListing from "../components/postListing"
+import Terminal from "../components/terminal"
 
-const BlogIndex = ({ data, location }) => {
+const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const menuLinks = data.site.siteMetadata?.menuLinks || []
+  const author = data.site.siteMetadata?.author?.name || ``
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-
-      {posts.map(PostListing)}
+      <SEO title="Homepage" />
+      <Terminal
+        height={500}
+        user={author.split(" ")[0].toLowerCase()}
+        computer={siteTitle}
+        renderIntro={() => (
+          <p>
+            Welcome to{" "}
+            <NavLink as={Link} to="/" variant="active">
+              {`${siteTitle}.com`}
+            </NavLink>
+            !
+          </p>
+        )}
+        prompts={[
+          [
+            "cat ./README.md",
+            <p>I am currently a software engineer at The Home Depot.</p>,
+          ],
+          [
+            "ls ./menu",
+            <p>
+              {menuLinks.map(({ name, link }) => (
+                <NavLink as={Link} sx={{ pr: 1 }} href={link}>
+                  {name.toLowerCase()}
+                </NavLink>
+              ))}
+            </p>,
+          ],
+          ["", null],
+        ]}
+      />
     </Layout>
   )
 }
 
-export default BlogIndex
+export default Homepage
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
+        author {
+          name
         }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
+        menuLinks {
+          name
+          link
         }
       }
     }
