@@ -35,7 +35,9 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
           }}
         >
           {menuLinks.map(({ name, link }) => {
-            const isActive = window?.location?.pathname === link
+            const isActive =
+              typeof window !== "undefined" &&
+              window?.location?.pathname === link
             return (
               <Styled.h3>
                 <NavLink
