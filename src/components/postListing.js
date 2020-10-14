@@ -21,14 +21,14 @@ const PostListing = props => {
           </Box>
           <small sx={{ color: "muted" }}>{props.timeToRead} min read</small>
         </header>
-        <section>
+        {/* <section>
           <p
             dangerouslySetInnerHTML={{
               __html: props.frontmatter.description || props.excerpt,
             }}
             itemProp="description"
           />
-        </section>
+        </section> */}
       </article>
     </ListLink>
   )

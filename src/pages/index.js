@@ -21,7 +21,7 @@ const Homepage = ({ data, location }) => {
         renderIntro={() => (
           <p>
             Welcome to{" "}
-            <NavLink as={Link} to="/" variant="active">
+            <NavLink as={Link} to="/">
               {`${siteTitle}.com`}
             </NavLink>
             !
@@ -33,10 +33,31 @@ const Homepage = ({ data, location }) => {
             <p>I am currently a software engineer at The Home Depot.</p>,
           ],
           [
+            "cat ./thoughts.md",
+            <p>
+              Head on over to my{" "}
+              <NavLink as={Link} to="/thoughts">
+                thoughts
+              </NavLink>{" "}
+              page for some helpful advice and reflections on my experiences in
+              the software industry.
+            </p>,
+          ],
+          [
+            "cat ./tips.md",
+            <p>
+              The{" "}
+              <NavLink as={Link} to="/tips">
+                tips
+              </NavLink>{" "}
+              page is where I collect useful code snippets and commands.
+            </p>,
+          ],
+          [
             "ls ./menu",
             <p>
               {menuLinks.map(({ name, link }) => (
-                <NavLink as={Link} sx={{ pr: 1 }} href={link}>
+                <NavLink as={Link} sx={{ pr: 1 }} to={link}>
                   {name.toLowerCase()}
                 </NavLink>
               ))}

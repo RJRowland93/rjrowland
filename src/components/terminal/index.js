@@ -22,7 +22,7 @@ function Terminal({ height, user, computer, renderIntro, prompts }) {
   }, [])
 
   return (
-    <section sx={{ borderRadius: "5px" }}>
+    <section>
       <Menu />
       <div
         sx={{

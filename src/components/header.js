@@ -16,7 +16,7 @@ const Header = ({ siteTitle, menuLinks, isOpen, setOpen }) => {
           sx={{ justifyContent: "space-between" }}
         >
           <Styled.h2 sx={{ m: 0, alignSelf: "center" }}>
-            <NavLink variant="active" as={Link} to="/">
+            <NavLink as={Link} to="/">
               {siteTitle}
             </NavLink>
           </Styled.h2>

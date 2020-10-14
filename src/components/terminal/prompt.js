@@ -64,12 +64,19 @@ function Prompt({
       <div>
         <span
           sx={{
-            color: "primary",
+            color: "#bc7438",
           }}
         >
           {`${user}@${computer}`}
         </span>
-        :<b>~</b>
+        :
+        <b
+          sx={{
+            color: "#ffd494",
+          }}
+        >
+          ~
+        </b>
         <span sx={{ pr: 1 }}>$</span>
         <span
           ref={elementRef}

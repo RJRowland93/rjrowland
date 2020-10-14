@@ -21,11 +21,21 @@ export default merge(toTheme(parnassus), {
     container: 768,
   },
   styles: {
-    a: { color: "primary" },
-    h1: { color: "primary" },
+    a: {
+      color: "primary",
+      "&:hover": {
+        color: "text",
+      },
+    },
   },
   links: {
     active: {
+      color: "text",
+      "&:hover": {
+        color: "primary",
+      },
+    },
+    nav: {
       color: "primary",
       "&:hover": {
         color: "text",

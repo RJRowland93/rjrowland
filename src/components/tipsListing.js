@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css, Styled, Box } from "theme-ui"
+import { jsx, css, Styled, Flex, Box } from "theme-ui"
 
 import ListLink from "./listLink"
 
@@ -9,28 +9,35 @@ const PostListing = post => {
 
   return (
     <ListLink key={post.fields.slug} to={post.fields.slug}>
-      <article
+      <Flex
+        as="article"
+        sx={{ width: "100%", justifyContent: "space-between" }}
         className="post-list-item"
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
-          <Styled.h2 css={css({ color: "primary" })}>{title}</Styled.h2>
+          <Styled.h2 sx={{ color: "primary", m: 0 }}>{title}</Styled.h2>
         </header>
         <section>
-          <p
+          {/* <p
             dangerouslySetInnerHTML={{
               __html: post.frontmatter.description || post.excerpt,
             }}
-          />
+          /> */}
           {tags &&
             tags.map(tag => (
-              <Box as="span" p={1} mr={2} sx={{ backgroundColor: "secondary" }}>
+              <Box
+                as="small"
+                p={1}
+                mr={2}
+                sx={{ backgroundColor: "secondary" }}
+              >
                 {tag}
               </Box>
             ))}
         </section>
-      </article>
+      </Flex>
     </ListLink>
   )
 }
