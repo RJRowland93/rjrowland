@@ -1,5 +1,6 @@
 // normalize CSS across browsers
 import "./src/normalize.css"
+import "./src/styles.css"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"

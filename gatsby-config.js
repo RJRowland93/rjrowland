@@ -16,7 +16,7 @@ module.exports = {
       github: "RJRowland93",
     },
     socialLinks: [
-      { name: "Github", url: `https://github.com/RJRowland93` },
+      { name: "GitHub", url: `https://github.com/RJRowland93` },
       { name: "Linkedin", url: `https://linkedin.com/in/randalrowland` },
     ],
   },

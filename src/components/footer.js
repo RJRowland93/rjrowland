@@ -1,29 +1,28 @@
-import React from "react"
+/** @jsx jsx */
 import PropTypes from "prop-types"
-import { Styled, Flex, Container } from "theme-ui"
+import { jsx, Styled, Flex, Container } from "theme-ui"
+import { GitHub, Linkedin } from "react-feather"
+
+const icons = {
+  GitHub: <GitHub />,
+  Linkedin: <Linkedin />,
+}
 
 const Footer = ({ social }) => (
   <Container
     as="footer"
     mt={3}
-    pt={3}
+    pt={2}
     sx={{
       borderTop: "3px solid",
       borderColor: "secondary",
     }}
   >
-    <Flex sx={{ justifyContent: "space-around" }}>
+    <Flex sx={{ justifyContent: "center" }}>
       {social.map(({ name, url }) => (
-        <Styled.h4>
-          <Styled.a
-            sx={{ width: "100%", textAlign: "center" }}
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {name}
-          </Styled.a>
-        </Styled.h4>
+        <Styled.a href={url} target="_blank" rel="noreferrer" sx={{ p: 1 }}>
+          {icons[name]}
+        </Styled.a>
       ))}
     </Flex>
   </Container>
