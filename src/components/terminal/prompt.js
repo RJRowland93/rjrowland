@@ -13,8 +13,8 @@ function Prompt({
   computer,
   handleComplete = () => {},
 }) {
-  const elementRef = useRef()
-  useEffect(() => elementRef.current.scrollIntoView(), [])
+  // const elementRef = useRef()
+  // useEffect(() => elementRef.current.scrollIntoView(), [])
 
   const [left, setLeft] = useState(command)
   const [typing, setTyping] = useState("")
@@ -79,7 +79,7 @@ function Prompt({
         </b>
         <span sx={{ pr: 1 }}>$</span>
         <span
-          ref={elementRef}
+          // ref={elementRef}
           sx={{
             borderRight: isActive ? "1px solid white" : "",
             animation: "blink 1s step-end infinite",

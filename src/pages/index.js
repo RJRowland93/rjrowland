@@ -8,7 +8,7 @@ import Terminal from "../components/terminal"
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const menuLinks = data.site.siteMetadata?.menuLinks || []
+  // const menuLinks = data.site.siteMetadata?.menuLinks || []
   const author = data.site.siteMetadata?.author?.name || ``
 
   return (
@@ -33,7 +33,7 @@ const Homepage = ({ data, location }) => {
             <p>I am currently a software engineer at The Home Depot.</p>,
           ],
           [
-            "cat ./thoughts.md",
+            "cat ./menu/thoughts.md",
             <p>
               Head on over to my{" "}
               <NavLink as={Link} to="/thoughts">
@@ -44,23 +44,13 @@ const Homepage = ({ data, location }) => {
             </p>,
           ],
           [
-            "cat ./tips.md",
+            "cat ./menu/tips.md",
             <p>
               The{" "}
               <NavLink as={Link} to="/tips">
                 tips
               </NavLink>{" "}
-              page is where I collect useful code snippets and commands.
-            </p>,
-          ],
-          [
-            "ls ./menu",
-            <p>
-              {menuLinks.map(({ name, link }) => (
-                <NavLink as={Link} sx={{ pr: 1 }} to={link}>
-                  {name.toLowerCase()}
-                </NavLink>
-              ))}
+              page is where I collect useful commands and code snippets.
             </p>,
           ],
           ["", null],

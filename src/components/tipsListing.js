@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css, Styled, Flex, Box } from "theme-ui"
+import { jsx, Styled, Flex, Box } from "theme-ui"
 
 import ListLink from "./listLink"
 
